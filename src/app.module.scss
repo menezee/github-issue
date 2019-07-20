@@ -1,0 +1,10 @@
+.container {
+  &__split {
+    display: flex;
+  }
+
+  &__column {
+    flex-direction: column;
+    flex-grow: 1;
+  }
+}
