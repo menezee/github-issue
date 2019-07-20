@@ -60,7 +60,8 @@ const App = () => {
                 title={issue.title}
                 id={issue.id}
                 state={issue.state}
-                onClick={() => {}}
+                onClick={() => {
+                }}
               />
             ))
           }
