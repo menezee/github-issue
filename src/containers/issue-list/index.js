@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "@reach/router"
 import styles from './issue-list.module.scss';
-import {List, Issue, SortBy} from '../../components';
+import {List, Issue, Dropdown} from '../../components';
 import {IssuesContext} from "../../context";
-import getSortByFunctionFor from '../../helpers/sort';
+// import getSortByFunctionFor from '../../helpers/sort';
 
 export const IssueList = () => {
   const {favorites, setFavorites, issues, setIssues} = useContext(IssuesContext);
@@ -16,39 +16,50 @@ export const IssueList = () => {
 
   useEffect(() => {
     if (sortBy) {
-      const sortFunction = getSortByFunctionFor[sortBy];
-      setIssues(sortFunction(issues));
+      alert('TODO: review sort functions.')
     }
   }, [sortBy, issues, setIssues]);
 
   return (
     <>
-
-      {/* TITLE */}
       <header>
+        {/* TITLE */}
         <h1>
           List of issues
         </h1>
-      </header>
-
-      <div className={styles.buttons__container}>
-
-        {/* SORT BY */}
-        <SortBy onChange={e => {
-          setSortBy(e.target.value)
-        }}>
-          <SortBy.Option>
-            id
-          </SortBy.Option>
-          <SortBy.Option>
-            state
-          </SortBy.Option>
-        </SortBy>
 
         {/* LINK */}
         <nav>
           <Link to="favorites">Favorites</Link>
         </nav>
+      </header>
+
+      <div className={styles.buttons__container}>
+        {/* SORT BY */}
+        <Dropdown
+          onChange={e => {setSortBy(e.target.value)}}
+          label='sort by state'
+        >
+          <Dropdown.Option>
+            asc
+          </Dropdown.Option>
+          <Dropdown.Option>
+            desc
+          </Dropdown.Option>
+        </Dropdown>
+
+        {/* SORT BY */}
+        <Dropdown
+          onChange={e => {setSortBy(e.target.value)}}
+          label='sort by id'
+        >
+          <Dropdown.Option>
+            asc
+          </Dropdown.Option>
+          <Dropdown.Option>
+            desc
+          </Dropdown.Option>
+        </Dropdown>
       </div>
 
       {/* LIST OF ISSUES */}

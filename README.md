@@ -8,7 +8,7 @@ fetches some issues and that's pretty much it :octocat:
 ### TODO:
 
 - [x] List issues from github api;
-- [x] Sort issues by id or state;
+- [ ] Sort issues by id or state;
 - [x] Favorite issues;
 - [x] Navigate to a different screen that will have all the issues that were favorited;
 - [x] Create context or lift the state;

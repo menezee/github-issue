@@ -13,5 +13,9 @@ Issue.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   state: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+};
+
+Issue.defaultProps = {
+  onClick: () => {},
 };

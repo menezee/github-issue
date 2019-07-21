@@ -12,7 +12,7 @@ export const IssuesContext = createContext(INITIAL_MODEL);
 export const IssuesContextProvider = ({children}) => {
   const [issues, setIssues] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [repo, setRepo] = useState('facebook/react');
+  const [repo, setRepo] = useState('Matt-Esch/string-template');
   const issuesPayload = useIssues(repo);
 
   useEffect(() => {
