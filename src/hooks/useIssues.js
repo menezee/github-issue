@@ -15,7 +15,7 @@ export const useIssues = repo => {
     })()
   }, [repo]);
 
-  return [issues, setIssues];
+  return issues;
 };
 
 useIssues.propTypes = {
