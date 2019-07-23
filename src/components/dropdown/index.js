@@ -4,8 +4,8 @@ import {Option} from './option';
 import PropTypesHelper from '../../helpers/prop-types';
 
 export const Dropdown = ({children, onChange, label}) => (
-  <>
-    <label htmlFor={label}>
+  <div className='mr-3'>
+    <label htmlFor={label} className='mr-1'>
       {label}
     </label>
     <select
@@ -16,7 +16,7 @@ export const Dropdown = ({children, onChange, label}) => (
       <Option disabled>---</Option>
       {children}
     </select>
-  </>
+  </div>
 );
 
 

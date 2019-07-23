@@ -12,7 +12,7 @@ export const Option = ({children, disabled}) => (
 
 
 Option.propTypes = {
-  children: PropTypes.oneOf(['asc', 'desc', '---']).isRequired,
+  children: PropTypes.oneOf(['asc', 'desc', '---', 'open', 'closed']).isRequired,
   disabled: PropTypes.bool,
 };
 
