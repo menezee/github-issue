@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {Issue} from '../';
 import PropTypesHelper from "../../helpers/prop-types";
 
 export const List = ({children}) => (
-  <ul>
+  <div className={classnames('Box', 'mt-6')}>
     {children}
-  </ul>
+  </div>
 );
 
 List.propTypes = {

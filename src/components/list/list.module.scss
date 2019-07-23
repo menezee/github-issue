@@ -1,0 +1,11 @@
+@import "~@primer/css/support/variables/layout";
+@import "~@primer/css/support/mixins/layout";
+
+// example for breakpoint
+.list {
+  width: 100%;
+
+  @include breakpoint(xl) {
+    width: 70%;
+  }
+}

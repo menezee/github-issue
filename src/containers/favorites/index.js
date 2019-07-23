@@ -7,7 +7,7 @@ export const Favorites = () => {
   const {favorites} = useContext(IssuesContext);
 
   return (
-    <>
+    <div className='container'>
 
       {/* TITLE */}
       <h1>
@@ -32,6 +32,6 @@ export const Favorites = () => {
           ))
         }
       </List>
-    </>
+    </div>
   );
 };
