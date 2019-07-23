@@ -1,13 +1,12 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Link } from "@reach/router"
-import styles from './issue-list.module.scss';
 import {List, Issue, Dropdown} from '../../components';
 import {IssuesContext} from "../../context";
-// import getSortByFunctionFor from '../../helpers/sort';
+import sortFunctions from '../../helpers/sort';
 
 export const IssueList = () => {
   const {favorites, setFavorites, issues, setIssues} = useContext(IssuesContext);
-  const [sortBy, setSortBy] = useState(undefined);
+  const [sortBy, setSortBy] = useState([]);
 
   const addToFavorites = id => () => {
     const favoriteIssue = issues.find(issue => issue.id === id);
@@ -15,13 +14,17 @@ export const IssueList = () => {
   };
 
   useEffect(() => {
-    if (sortBy) {
-      alert('TODO: review sort functions.')
+    if (sortBy.length) {
+      const [type, order] = sortBy;
+      const sort = sortFunctions[type][order];
+      setIssues(sort([...issues]));
     }
-  }, [sortBy, issues, setIssues]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortBy]);
+
 
   return (
-    <>
+    <div className='container'>
       <header>
         {/* TITLE */}
         <h1>
@@ -34,23 +37,23 @@ export const IssueList = () => {
         </nav>
       </header>
 
-      <div className={styles.buttons__container}>
+      <div className='d-flex'>
         {/* SORT BY */}
         <Dropdown
-          onChange={e => {setSortBy(e.target.value)}}
+          onChange={e => {setSortBy(['state', e.target.value])}}
           label='sort by state'
         >
           <Dropdown.Option>
-            asc
+            open
           </Dropdown.Option>
           <Dropdown.Option>
-            desc
+            closed
           </Dropdown.Option>
         </Dropdown>
 
         {/* SORT BY */}
         <Dropdown
-          onChange={e => {setSortBy(e.target.value)}}
+          onChange={e => {setSortBy(['id', e.target.value])}}
           label='sort by id'
         >
           <Dropdown.Option>
@@ -76,6 +79,6 @@ export const IssueList = () => {
           ))
         }
       </List>
-    </>
+    </div>
   );
 };
