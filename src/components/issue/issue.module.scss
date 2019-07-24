@@ -1,5 +1,9 @@
 .issue {
   &__button {
-    width: 6rem;
+    flex-basis: 25% !important;
+  }
+
+  &__info-container {
+    flex-basis: 75% !important;
   }
 }
