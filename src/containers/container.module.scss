@@ -1,0 +1,11 @@
+@import "~@primer/css/support/variables/layout";
+@import "~@primer/css/support/mixins/layout";
+
+.issue-container {
+  width: 100% !important;
+  padding: 3rem;
+
+  @include breakpoint(lg) {
+    width: 90% !important;
+  }
+}

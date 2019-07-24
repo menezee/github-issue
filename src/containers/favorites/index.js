@@ -1,13 +1,15 @@
 import React, {useContext} from 'react';
-import {Link} from "@reach/router"
+import {Link} from '@reach/router'
+import classnames from 'classnames';
 import {IssuesContext} from "../../context";
 import {Issue, List} from '../../components';
+import commonContainerStyles from '../container.module.scss';
 
 export const Favorites = () => {
   const {favorites} = useContext(IssuesContext);
 
   return (
-    <div className='container'>
+    <div className={classnames('container', commonContainerStyles['issue-container'])}>
 
       {/* TITLE */}
       <h1>

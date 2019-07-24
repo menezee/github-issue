@@ -1,8 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react';
-import { Link } from "@reach/router"
+import { Link } from '@reach/router'
+import classnames from 'classnames';
 import {List, Issue, Dropdown} from '../../components';
 import {IssuesContext} from "../../context";
 import sortFunctions from '../../helpers/sort';
+import commonContainerStyles from '../container.module.scss';
 
 export const IssueList = () => {
   const {favorites, setFavorites, issues, setIssues} = useContext(IssuesContext);
@@ -24,7 +26,7 @@ export const IssueList = () => {
 
 
   return (
-    <div className='container'>
+    <div className={classnames('container', commonContainerStyles['issue-container'])}>
       <header>
         {/* TITLE */}
         <h1>
